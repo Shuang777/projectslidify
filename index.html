@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Human Activity Recognition</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Human Activity Recognition">
+  <meta name="author" content="Hang Su">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Human Activity Recognition</h1>
+    <h2>using Random Forest</h2>
+    <p>Hang Su<br/>Graduate Student</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Human Activity Recognition (HAR)</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>A key research area</li>
+<li>Many potential applications for HAR, like: elderly monitoring, life log systems </li>
+<li>Data: <a href="http://groupware.les.inf.puc-rio.br/har#dataset">http://groupware.les.inf.puc-rio.br/har#dataset</a></li>
+<li>5 classes (sitting-down, standing-up, standing, walking, and sitting) </li>
+<li>Collected on 8 hours of activities of 4 healthy subjects.</li>
+</ol>
+
+<pre><code class="r">library(randomForest)
+traindata &lt;- read.csv(&quot;training.csv&quot;)
+head(traindata[1:4,1:4])
+</code></pre>
+
+<pre><code>##   X.1  X user_name raw_timestamp_part_1
+## 1   9  9  carlitos           1323084232
+## 2  36 36  carlitos           1323084233
+## 3  39 39  carlitos           1323084233
+## 4  50 50  carlitos           1323084233
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Random Forest</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>A popular classification model</li>
+<li>Selection of a random subset of features</li>
+<li>Decision tree learning</li>
+<li>Tree bagging </li>
+<li><code>library(randomForest)</code></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Analysis on features</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><img src="feature.png" alt=""></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Prediction Accuracy</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>5-Fold cross-validation accuracy:</p>
+
+<ol>
+<li>cv 1 acc: 99.0061162079511 %</li>
+<li>cv 2 acc: 98.7257900101937 %</li>
+<li>cv 3 acc: 99.1590214067278 %</li>
+<li>cv 4 acc: 99.2609582059123 %</li>
+<li>cv 5 acc: 99.0316004077472 %</li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Human Activity Recognition (HAR)'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Random Forest'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Analysis on features'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Prediction Accuracy'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
